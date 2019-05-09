@@ -63,6 +63,12 @@ describe GildedRose do
       GildedRose.new(items).update_quality()
       expect(items[0].quality).to eq 10
     end
+
+    it "never had a negative sell in date" do
+      items = [Item.new("Sulfuras, Hand of Ragnaros", 0, 0)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 0
+    end
   end
 
 
