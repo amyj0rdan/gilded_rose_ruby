@@ -34,4 +34,9 @@ HINT: Test first FTW!
 
 1. Spend time understanding the kata, as if writing from scratch
 2. Tidy folder structure to be as per usual Ruby project
-3. Start writing tests
+3. Write tests for all current functionality
+4. Extract out methods that are repeated by item types
+5. Quick wins (eg, change `item.quality = item.quality + 1` to `item.quality += 1`)
+6. Use a linter
+7. Remove unnecessary if statements
+8. Change negative if statements to positive unless statements
