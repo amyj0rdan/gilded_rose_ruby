@@ -28,8 +28,8 @@ class GildedRose
 
   def decrease_quality(item)
     if item.quality > 0
-      item.quality -= 1 unless item.name.include?('Sulfuras')
-      item.quality -= 1 if item.name.include?('Conjured')
+      item.quality -= 1 unless item.name.include?('Sulfuras') || item.name.include?('Conjured')
+      item.quality -= 2 if item.name.include?('Conjured')
       item.quality = 0 if item.name.include?('Backstage passes')
     end
   end

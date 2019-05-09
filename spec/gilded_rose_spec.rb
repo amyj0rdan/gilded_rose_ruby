@@ -140,11 +140,10 @@ describe GildedRose do
       expect(items[0].sell_in).to eq(-1)
     end
 
-    # checking if this requirement is correct with the product owner
-    # it 'reduces quality twice as fast after sell_in date passed' do
-    #   items = [Item.new('Conjured Mana Cake', 0, 10)]
-    #   GildedRose.new(items).update_quality
-    #   expect(items[0].quality).to eq 4
-    # end
+    it 'reduces quality twice as fast after sell_in date passed' do
+      items = [Item.new('Conjured Mana Cake', 0, 10)]
+      GildedRose.new(items).update_quality
+      expect(items[0].quality).to eq 6
+    end
   end
 end
