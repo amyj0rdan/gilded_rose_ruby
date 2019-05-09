@@ -65,7 +65,9 @@ MixinUsage:
 #   * Easy wins in expressiveness (e.g. guard clauses — nice opportunity to
 #     inject concretes)
 #   * Egregious non-idiomatic ruby like `def getFilename`
-
+BlockLength:
+  Exclude:
+    - 'spec/gilded_rose_spec.rb'
 IndentationConsistency:
   Enabled: true
 IndentationWidth:

@@ -11,16 +11,15 @@ class GildedRose
         increase_quality(item)
       end
       update_sell_in(item)
-      if item.sell_in < 0
-        if !item.name.include?('Aged Brie')
-          if !item.name.include?('Backstage passes')
-            decrease_quality(item)
-          else
-            item.quality = 0
-          end
+      if item.sell_in < 0 && !item.name.include?('Aged Brie')
+        if item.name.include?('Backstage passes')
+          item.quality = 0
         else
-          item.quality += 1 if item.quality < 50
+          decrease_quality(item)
         end
+      end
+      if item.sell_in < 0 && item.name.include?('Aged Brie')
+        increase_quality(item)
       end
     end
   end
@@ -36,7 +35,7 @@ class GildedRose
   def increase_quality(item)
     if item.quality < 50
       item.quality += 1
-      if item.name.include?('Backstage passes')
+      if item.quality < 49 && item.name.include?('Backstage passes')
         if item.sell_in.between?(6, 10)
           item.quality += 1
         elsif item.sell_in.between?(0, 5)

@@ -54,6 +54,12 @@ describe GildedRose do
       GildedRose.new(items).update_quality
       expect(items[0].quality).to eq 50
     end
+
+    it 'quality increases twice as fast passed sell in date' do
+      items = [Item.new('Aged Brie', 0, 10)]
+      GildedRose.new(items).update_quality
+      expect(items[0].quality).to eq 12
+    end
   end
 
   describe "#update_quality for 'Sulfuras'" do
@@ -97,6 +103,13 @@ describe GildedRose do
 
     it 'does not increase quality above 50' do
       items = [Item.new('Backstage passes to a TAFKAL80ETC concert', 10, 50)]
+      GildedRose.new(items).update_quality
+      expect(items[0].quality).to eq 50
+    end
+
+    it 'does not increase quality above 50, when quality starts below 50' do
+      items = [Item.new('Backstage passes to a TAFKAL80ETC concert', 10, 49)]
+      GildedRose.new(items).update_quality
       GildedRose.new(items).update_quality
       expect(items[0].quality).to eq 50
     end
