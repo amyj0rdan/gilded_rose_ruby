@@ -1,11 +1,14 @@
 class GildedRose
+
+  INCREASE_QUALITY_ITEMS = ['Aged Brie', 'Backstage passes']
+
   def initialize(items)
     @items = items
   end
 
   def update_quality
     @items.each do |item|
-      if !item.name.include?('Aged Brie') && !item.name.include?('Backstage passes')
+      if INCREASE_QUALITY_ITEMS.all? { |type| !item.name.include?(type) }
         decrease_quality(item)
       else
         increase_quality(item)
@@ -35,11 +38,8 @@ class GildedRose
     if item.quality < 50
       item.quality += 1
       if item.quality < 49 && item.name.include?('Backstage passes')
-        if item.sell_in.between?(6, 10)
-          item.quality += 1
-        elsif item.sell_in.between?(0, 5)
-          item.quality += 2
-        end
+        item.quality += 1 if item.sell_in.between?(6, 10)
+        item.quality += 2 if item.sell_in.between?(0, 5)
       end
     end
   end

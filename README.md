@@ -40,3 +40,4 @@ HINT: Test first FTW!
 6. Use a linter
 7. Remove unnecessary if statements
 8. Change negative if statements to positive unless statements
+9. Reuse methods, where possible
