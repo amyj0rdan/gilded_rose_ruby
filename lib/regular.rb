@@ -1,3 +1,5 @@
+require 'item'
+
 class Regular < Item
 
   def update_quality
