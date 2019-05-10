@@ -21,7 +21,7 @@ describe AgedBrie do
       expect(aged_brie.sell_in).to eq(-1)
     end
 
-    it 'does not ever have a quality higher than 50' do
+    it 'does not ever have a quality higher than 50 when initial quality is 50' do
       aged_brie = AgedBrie.new('Aged Brie', 10, 50)
       aged_brie.update_quality
       expect(aged_brie.quality).to eq 50
@@ -32,6 +32,12 @@ describe AgedBrie do
       aged_brie.update_quality
       aged_brie.update_quality
       expect(aged_brie.quality).to eq 50
+    end
+
+    it 'quality increases twice as fast after sell_in date passed' do
+      aged_brie = AgedBrie.new('Aged Brie', 0, 10)
+      aged_brie.update_quality
+      expect(aged_brie.quality).to eq 12
     end
   end
 end
