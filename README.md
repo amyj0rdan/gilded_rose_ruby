@@ -3,7 +3,8 @@
 See [here](https://github.com/makersacademy/course/blob/master/individual_challenges/gilded_rose.md) for the original Makers repo.     
 See [here](https://github.com/emilybache/GildedRose-Refactoring-Kata) for Emily Bache's repo of legacy code.
 
-[The kata](#the-kata) | [The brief](#the-brief) | [Approach](#approach)
+[The kata](#the-kata) | [The brief](#the-brief) | [Approach](#approach)     
+[Getting started](#getting-started) | [Running tests](#running-tests) | [Usage](#usage) | [Screenshot](#screenshot)
 
 ## The kata
 
@@ -36,8 +37,34 @@ HINT: Test first FTW!
 2. Tidy folder structure to be as per usual Ruby project
 3. Write tests for all current functionality
 4. Extract out methods that are repeated by item types
-5. Quick wins (eg, change `item.quality = item.quality + 1` to `item.quality += 1`)
-6. Use a linter
-7. Remove unnecessary if statements
-8. Change negative if statements to positive unless statements
-9. Reuse methods, where possible
+5. Run tests every time a change is made
+6. Quick wins (eg, change `item.quality = item.quality + 1` to `item.quality += 1`)
+7. Use a linter and follow recommendations
+8. Remove unnecessary if statements where these are duplicated in the code
+9. Change negative if statements to positive unless statements
+10. Reuse methods where possible
+11. Extract out classes for each item that inherits from the Item class. (Therefore the Item class is left untampered with and new items with new update requirements can be easily added.)
+12. Add feature test that replicates the behaviour in the original texttest_fixture.rb (I should have done this earlier and would have had more security in my code throughout if I had)
+
+## Getting started
+
+First clone this repo, then:
+```bash
+> bundle install
+```
+## Running tests
+
+```bash
+> bundle exec rspec # Run the tests to ensure it works
+```
+
+## Usage
+
+```bash
+> irb
+> require './lib/gilded_rose.rb' # Create items and the Gilded Rose in the command line
+```
+
+## Screenshot
+
+<img width="1143" alt="Screenshot 2019-05-10 at 20 12 38" src="https://user-images.githubusercontent.com/45539085/57551133-384aed80-7360-11e9-99a7-a62b2cbc60d9.png">
