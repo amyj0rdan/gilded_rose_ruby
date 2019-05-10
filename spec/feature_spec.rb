@@ -47,6 +47,21 @@ describe "Feature test" do
       expect(@items[7].sell_in).to eq 4
       expect(@items[8].sell_in).to eq 2
     end
+
+    it 'updates the quality of the relevant items on second #update_quality' do
+      gilded_rose = GildedRose.new(@items)
+      gilded_rose.update_quality
+      gilded_rose.update_quality
+      expect(@items[0].quality).to eq 18
+      expect(@items[1].quality).to eq 2
+      expect(@items[2].quality).to eq 5
+      expect(@items[3].quality).to eq 80
+      expect(@items[4].quality).to eq 80
+      expect(@items[5].quality).to eq 22
+      expect(@items[6].quality).to eq 50
+      expect(@items[7].quality).to eq 50
+      expect(@items[8].quality).to eq 2
+    end
   end
 
 end
