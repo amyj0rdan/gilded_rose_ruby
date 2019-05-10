@@ -20,6 +20,12 @@ describe Regular do
       expect(regular.quality).to eq 0
     end
 
+    it 'does not decrease quality of an item below 0' do
+      regular = Regular.new('foo', 1, 1)
+      regular.update_quality
+      expect(regular.quality).to eq 0
+    end
+
     it 'reduces sell_in below 0' do
       regular = Regular.new('foo', 0, 0)
       regular.update_quality
