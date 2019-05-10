@@ -3,7 +3,7 @@ require 'aged_brie'
 describe AgedBrie do
 
   describe '#update_quality' do
-    it 'reduces sell in by 1' do
+    it 'reduces sell_in by 1' do
       aged_brie = AgedBrie.new('Aged Brie', 10, 10)
       aged_brie.update_quality
       expect(aged_brie.sell_in).to eq 9
@@ -14,6 +14,24 @@ describe AgedBrie do
       aged_brie.update_quality
       expect(aged_brie.quality).to eq 11
     end
-  end
 
+    it 'can reduce sell_in below 0' do
+      aged_brie = AgedBrie.new('Aged Brie', 0, 10)
+      aged_brie.update_quality
+      expect(aged_brie.sell_in).to eq(-1)
+    end
+
+    it 'does not ever have a quality higher than 50' do
+      aged_brie = AgedBrie.new('Aged Brie', 10, 50)
+      aged_brie.update_quality
+      expect(aged_brie.quality).to eq 50
+    end
+
+    it 'does not ever have a quality higher than 50' do
+      aged_brie = AgedBrie.new('Aged Brie', 10, 49)
+      aged_brie.update_quality
+      aged_brie.update_quality
+      expect(aged_brie.quality).to eq 50
+    end
+  end
 end
