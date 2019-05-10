@@ -46,6 +46,8 @@ AllCops:
 Metrics/LineLength:
   Max: 80
   IgnoredPatterns: ['(\A|\s)#']
+  Exclude:
+    - 'spec/backstage_passes_spec.rb'
 
 MixinUsage:
   Enabled: false
@@ -68,6 +70,11 @@ MixinUsage:
 BlockLength:
   Exclude:
     - 'spec/gilded_rose_spec.rb'
+    - 'spec/regular_spec.rb'
+    - 'spec/backstage_passes_spec.rb'
+    - 'spec/conjured_spec.rb'
+    - 'spec/aged_brie_spec.rb'
+
 IndentationConsistency:
   Enabled: true
 IndentationWidth:

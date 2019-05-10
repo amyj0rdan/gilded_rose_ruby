@@ -21,13 +21,13 @@ describe AgedBrie do
       expect(aged_brie.sell_in).to eq(-1)
     end
 
-    it 'does not ever have a quality higher than 50 when initial quality is 50' do
+    it "doesn't have a quality higher than 50, when initial quality is 50" do
       aged_brie = AgedBrie.new('Aged Brie', 10, 50)
       aged_brie.update_quality
       expect(aged_brie.quality).to eq 50
     end
 
-    it 'does not ever have a quality higher than 50' do
+    it "doesn't have a quality higher than 50, when initial quality is > 50" do
       aged_brie = AgedBrie.new('Aged Brie', 10, 49)
       aged_brie.update_quality
       aged_brie.update_quality
