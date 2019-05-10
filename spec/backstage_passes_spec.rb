@@ -25,5 +25,11 @@ describe BackstagePasses do
       backstage_passes.update_quality
       expect(backstage_passes.quality).to eq 23
     end
+
+    it 'quality drops to 0 after the sell_in date' do
+      backstage_passes = BackstagePasses.new('Backstage passes to a TAFKAL80ETC concert', 0, 20)
+      backstage_passes.update_quality
+      expect(backstage_passes.quality).to eq 0
+    end
   end
 end
