@@ -31,5 +31,17 @@ describe BackstagePasses do
       backstage_passes.update_quality
       expect(backstage_passes.quality).to eq 0
     end
+
+    it 'quality cannot be higher than 50 when initial quality is 50' do
+      backstage_passes = BackstagePasses.new('Backstage passes to a TAFKAL80ETC concert', 10, 50)
+      backstage_passes.update_quality
+      expect(backstage_passes.quality).to eq 50
+    end
+
+    it 'quality cannot be higher than 50 when initial quality is 49' do
+      backstage_passes = BackstagePasses.new('Backstage passes to a TAFKAL80ETC concert', 8, 49)
+      backstage_passes.update_quality
+      expect(backstage_passes.quality).to eq 50
+    end
   end
 end
