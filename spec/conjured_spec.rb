@@ -13,5 +13,11 @@ describe Conjured do
       conjured.update_quality
       expect(conjured.quality).to eq 8
     end
+
+    it 'does not reduce the quality below 0' do
+      conjured = Conjured.new('Conjured Mana Cake', 10, 0)
+      conjured.update_quality
+      expect(conjured.quality).to eq 0
+    end
   end
 end
